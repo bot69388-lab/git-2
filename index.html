@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  
+  <!-- SEO Best Practices -->
+  <title>A Confession from the Heart ❤️</title>
+  <meta name="description" content="A cute, romantic love confession website custom-made with love, interactive cat proposal animations, and a scrolling letter." />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating Hearts Background Container -->
+  <div class="hearts-container" id="hearts-container"></div>
+  
+  <!-- Canvas for Celebration Heart Explosions -->
+  <canvas id="explosion-canvas"></canvas>
+
+  <!-- Background Music Toggle Button -->
+  <button id="music-btn" class="music-toggle muted" aria-label="Toggle background music">
+    <svg viewBox="0 0 24 24" id="music-icon-muted">
+      <!-- Mute/Off Icon -->
+      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6zm-2 16c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+    </svg>
+    <svg viewBox="0 0 24 24" id="music-icon-playing" style="display: none;">
+      <!-- Active Music Icon -->
+      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6zm-2 16c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+    </svg>
+  </button>
+
+  <!-- App View Container -->
+  <main class="page-container">
+
+    <!-- ==========================================
+         PAGE 1: LOGIN VIEW
+         ========================================== -->
+    <section id="page-login" class="view-card active">
+      <header class="login-header">
+        <h1>Welcome My Love <span class="heart-icon">❤️</span></h1>
+        <p>Let's step inside our secret little space... ✨</p>
+      </header>
+
+      <form id="login-form" onsubmit="return false;">
+        <div class="input-group">
+          <label for="her-name" class="input-label">Her Name 🌸</label>
+          <div class="input-wrapper">
+            <input 
+              type="text" 
+              id="her-name" 
+              class="cute-input" 
+              placeholder="Her name, princess..." 
+              required 
+              autocomplete="off"
+            />
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="his-name" class="input-label">His Name 🌟</label>
+          <div class="input-wrapper">
+            <input 
+              type="text" 
+              id="his-name" 
+              class="cute-input" 
+              placeholder="His name, handsome..." 
+              required 
+              autocomplete="off"
+            />
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="password" class="input-label">Special Password 🔑</label>
+          <div class="input-wrapper">
+            <input 
+              type="password" 
+              id="password" 
+              class="cute-input" 
+              placeholder="Enter our special key (MMDD)" 
+              required 
+              autocomplete="off"
+            />
+          </div>
+        </div>
+
+        <!-- Cute error text element -->
+        <div id="login-error" class="error-message" role="alert">
+          Oops! That's not our special key, my love 🥺 Try again!
+        </div>
+
+        <button type="submit" id="login-submit" class="cute-btn">
+          Unlock My Heart 💕
+        </button>
+      </form>
+    </section>
+
+    <!-- ==========================================
+         PAGE 2: PROPOSAL VIEW
+         ========================================== -->
+    <section id="page-proposal" class="view-card">
+      <div class="cat-container">
+        <!-- Ultra-cute customized vector SVG Chibi-Cat -->
+        <svg class="cat-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Tail -->
+          <g class="cat-tail">
+            <path d="M100 145 C115 155, 135 140, 140 120 C143 110, 137 100, 130 95 C125 90, 120 95, 125 100 C130 105, 133 112, 130 118 C125 130, 110 140, 96 135 Z" fill="#ffffff" stroke="#ffcbd5" stroke-width="2"/>
+          </g>
+          <!-- Back Feet -->
+          <ellipse cx="65" cy="150" rx="15" ry="8" fill="#ffffff" stroke="#ffcbd5" stroke-width="2"/>
+          <ellipse cx="115" cy="150" rx="15" ry="8" fill="#ffffff" stroke="#ffcbd5" stroke-width="2"/>
+          
+          <!-- Cat Body -->
+          <ellipse cx="90" cy="120" rx="35" ry="30" fill="#ffffff" stroke="#ffcbd5" stroke-width="2"/>
+          
+          <!-- Left Ear -->
+          <polygon points="45,65 30,35 65,48" fill="#ffffff" stroke="#ffcbd5" stroke-width="2"/>
+          <polygon points="50,60 38,42 62,50" fill="#ffccd5" />
+          
+          <!-- Right Ear -->
+          <polygon points="135,65 150,35 115,48" fill="#ffffff" stroke="#ffcbd5" stroke-width="2"/>
+          <polygon points="130,60 142,42 118,50" fill="#ffccd5" />
+          
+          <!-- Head -->
+          <ellipse cx="90" cy="75" rx="50" ry="42" fill="#ffffff" stroke="#ffcbd5" stroke-width="2"/>
+          
+          <!-- Sparkling Eyes -->
+          <g class="cat-eyes">
+            <!-- Left Eye -->
+            <ellipse cx="65" cy="72" rx="6" ry="8" fill="#5c3d46" />
+            <circle cx="63" cy="69" r="2" fill="#ffffff" />
+            <circle cx="67" cy="74" r="0.8" fill="#ffffff" />
+            <!-- Right Eye -->
+            <ellipse cx="115" cy="72" rx="6" ry="8" fill="#5c3d46" />
+            <circle cx="113" cy="69" r="2" fill="#ffffff" />
+            <circle cx="117" cy="74" r="0.8" fill="#ffffff" />
+          </g>
+          
+          <!-- Glowing Blush Cheeks -->
+          <g class="cat-blush">
+            <ellipse cx="52" cy="85" rx="8" ry="4" fill="#ff8da1" opacity="0.6"/>
+            <ellipse cx="128" cy="85" rx="8" ry="4" fill="#ff8da1" opacity="0.6"/>
+          </g>
+          
+          <!-- Nose & Whiskers -->
+          <polygon points="90,80 87,76 93,76" fill="#ff8da1" />
+          <path d="M90,80 C88,83, 85,83, 85,81" fill="none" stroke="#5c3d46" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M90,80 C92,83, 95,83, 95,81" fill="none" stroke="#5c3d46" stroke-width="1.5" stroke-linecap="round"/>
+          
+          <!-- Left Whiskers -->
+          <line x1="35" y1="78" x2="20" y2="76" stroke="#ffcbd5" stroke-width="2" stroke-linecap="round"/>
+          <line x1="35" y1="84" x2="18" y2="85" stroke="#ffcbd5" stroke-width="2" stroke-linecap="round"/>
+          
+          <!-- Right Whiskers -->
+          <line x1="145" y1="78" x2="160" y2="76" stroke="#ffcbd5" stroke-width="2" stroke-linecap="round"/>
+          <line x1="145" y1="84" x2="162" y2="85" stroke="#ffcbd5" stroke-width="2" stroke-linecap="round"/>
+          
+          <!-- Cat holding a Pulsing Heart -->
+          <g class="holding-heart">
+            <path d="M90,115 C85,100, 65,100, 65,115 C65,128, 90,140, 90,140 C90,140, 115,128, 115,115 C115,100, 95,100, 90,115 Z" fill="#ff4d6d" stroke="#ffccd5" stroke-width="1.5"/>
+            <circle cx="82" cy="110" r="1.5" fill="#ffffff" opacity="0.6"/>
+          </g>
+          
+          <!-- Cute paws holding the heart -->
+          <ellipse cx="68" cy="122" rx="8" ry="6" fill="#ffffff" stroke="#ffcbd5" stroke-width="1.5" transform="rotate(-15 68 122)"/>
+          <ellipse cx="112" cy="122" rx="8" ry="6" fill="#ffffff" stroke="#ffcbd5" stroke-width="1.5" transform="rotate(15 112 122)"/>
+        </svg>
+      </div>
+
+      <header class="proposal-header">
+        <h2>I love you <span class="heart-icon">❤️</span></h2>
+        <p class="proposal-subtitle">Will you be my future, my wife, my love?</p>
+      </header>
+
+      <!-- Proposal interactive buttons -->
+      <div class="btn-group">
+        <button id="btn-yes" class="cute-btn">YES ❤️</button>
+        <button id="btn-no" class="no-btn">NO 💔</button>
+      </div>
+    </section>
+
+    <!-- Success Celebration Backdrop (triggers on YES) -->
+    <div id="success-banner" class="success-banner">
+      <div class="success-banner-card">
+        <h2>YAYYYYY ❤️</h2>
+        <p>You made me the happiest person in the universe! 🥰</p>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         PAGE 3: LOVE LETTER VIEW
+         ========================================== -->
+    <section id="page-letter" class="view-card">
+      <div class="letter-glow-wrapper">
+        <div class="love-letter-box">
+          <div class="letter-header">
+            <span>My Dearest shrreya,</span>
+          </div>
+          
+          <!-- Elegant handwriting reveal section -->
+          <div id="letter-content" class="letter-text">shrreya
+
+from the day one i saw you i couldnt sleep properly every single day i thought of you your photo became my morning routine and my night routine there was no single day that i dint thought of you staying with you gives me immense safe feeling care and love i love you my jaan
+
+i want to marry you baby ill care you ill love you
+
+i loveeeeeeeeeeeeeee you booboo</div>
+          
+          <div class="letter-footer">
+            <span>Forever Yours ❤️</span>
+          </div>
+        </div>
+      </div>
+      <!-- Navigation to Page 4 Journey -->
+      <button id="btn-to-journey" class="cute-btn" style="margin-top: 25px; width: 100%;">
+        Our Journey 🌸
+      </button>
+    </section>
+
+    <!-- ==========================================
+         PAGE 4: OUR JOURNEY VIEW
+         ========================================== -->
+    <section id="page-journey" class="view-card" style="max-width: 500px;">
+      <header class="journey-header" style="margin-bottom: 20px;">
+        <h2>Our Journey <span class="heart-icon">💖</span></h2>
+        <p>A few of our favorite memories together...</p>
+      </header>
+
+      <!-- 2x2 Memory Card Grid -->
+      <div class="memory-grid">
+        <!-- Memory 1 -->
+        <div class="memory-card">
+          <div class="memory-img-wrapper">
+            <!-- Place your 'mem1.jpg' inside your folder to display it here! -->
+            <img src="mem1.jpg" alt="Our First Date" class="memory-img" />
+          </div>
+          <span class="memory-date">First Date 🌸</span>
+          <p class="memory-caption">the first date</p>
+        </div>
+
+        <!-- Memory 2 -->
+        <div class="memory-card">
+          <div class="memory-img-wrapper">
+            <!-- Place your 'mem2.jpg' inside your folder to display it here! -->
+            <img src="mem2.jpg" alt="Our First Night Together" class="memory-img" />
+          </div>
+          <span class="memory-date">Togetherness 🌙</span>
+          <p class="memory-caption">the first night togetherness</p>
+        </div>
+
+        <!-- Memory 3 -->
+        <div class="memory-card">
+          <div class="memory-img-wrapper">
+            <!-- Place your 'mem3.jpg' inside your folder to display it here! -->
+            <img src="mem3.jpg" alt="Hands on Shoulder" class="memory-img" />
+          </div>
+          <span class="memory-date">Gentle Touch 🤝</span>
+          <p class="memory-caption">the first hands on soldur</p>
+        </div>
+
+        <!-- Memory 4 -->
+        <div class="memory-card">
+          <div class="memory-img-wrapper">
+            <!-- Place your 'mem4.jpg' inside your folder to display it here! -->
+            <img src="mem4.jpg" alt="The Kiss" class="memory-img" />
+          </div>
+          <span class="memory-date">The Kiss 💋</span>
+          <p class="memory-caption">the kiss</p>
+        </div>
+      </div>
+
+      <!-- Love Note Highlight Callout -->
+      <div class="love-note-highlight">
+        <p>“from dry replies to kisses we came through lots babe i am proud of us will keep the spark alive untill the end my love”</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
